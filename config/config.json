@@ -1,0 +1,5 @@
+{
+    "project": "Google Chrome FullHD",
+    "pathToReports": "./reports/",
+    "defaultTimeout": 60000
+}

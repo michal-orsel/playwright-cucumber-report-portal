@@ -1,0 +1,8 @@
+node_modules/
+/results/
+/reports/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+@rerun.txt
+@rerun2.txt
