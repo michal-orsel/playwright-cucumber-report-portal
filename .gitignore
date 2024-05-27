@@ -1,8 +1,4 @@
 node_modules/
-/results/
-/reports/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
+results/
+reports/
 @rerun.txt
-@rerun2.txt

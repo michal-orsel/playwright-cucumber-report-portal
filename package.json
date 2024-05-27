@@ -1,12 +1,12 @@
 {
   "name": "playwright-cucumber-report-portal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "wipe_reports_and_results_folders": "npx ts-node wipe_reports_and_results_folders.ts",
     "pretest": "npm run wipe_reports_and_results_folders",
-    "test": "cucumber-js test--tags \"not (@wip or @manual)\"",
+    "test": "cucumber-js --tags \"not (@wip or @manual)\"",
     "test:rerun": "cucumber-js -p rerun @rerun.txt",
     "tag-login": "npm run test -- --tags \"@login and not (@wip or @manual)\"",
     "tag-login:positive": "npm run test -- --tags \"@login and @positive and not (@wip or @manual)\"",
