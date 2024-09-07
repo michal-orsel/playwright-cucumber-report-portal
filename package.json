@@ -1,0 +1,38 @@
+{
+  "name": "playwright-cucumber-report-portal",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "wipe_reports_and_results_folders": "npx ts-node wipe_reports_and_results_folders.ts",
+    "pretest": "npm run wipe_reports_and_results_folders",
+    "test": "cucumber-js --tags \"not (@wip or @manual)\"",
+    "test:rerun": "cucumber-js -p rerun @rerun.txt",
+    "tag-login": "npm run test -- --tags \"@login and not (@wip or @manual)\"",
+    "tag-login:positive": "npm run test -- --tags \"@login and @positive and not (@wip or @manual)\"",
+    "tag-login:negative": "npm run test -- --tags \"@login and @negative and not (@wip or @manual)\"",
+    "test-project-in-command-mobile-chrome": "cross-env PROJECT=\"Mobile Chrome\" npm run test",
+    "test-project-in-command-chromium": "cross-env PROJECT=\"Chromium\" npm run test"
+  },
+  "keywords": [
+    "Node.js",
+    "Playwright",
+    "Cucumber",
+    "Gherkin",
+    "BDD",
+    "Report Portal",
+    "JavaScript",
+    "TypeScript"
+  ],
+  "author": "Michal Orsel (mostly based on Koushik's videos)",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "9.6.0",
+    "@playwright/test": "^1.41.2",
+    "@reportportal/agent-js-cucumber": "^5.2.3",
+    "@types/node": "^20.11.16",
+    "cross-env": "^7.0.3",
+    "fs-extra": "^11.2.0",
+    "ts-node": "^10.9.2"
+  }
+}

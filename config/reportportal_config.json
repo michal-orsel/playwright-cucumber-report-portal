@@ -1,0 +1,15 @@
+{
+  "apiKey": "API_KEY_PLACEHOLDER",
+  "endpoint": "http://localhost:8080/api/v1",
+  "launch": "lunch_name",
+  "project": "superadmin_personal",
+  "description": "Launch description",
+  "attributes": ["attribute1", "attribute2"],
+  "takeScreenshot": "onFailure",
+  "launchUuidPrint": true,
+  "uploadVideo": true,
+  "scenarioBasedStatistics": true,
+  "uploadTrace": true,
+  "debug": false,
+  "rerun": false
+}
