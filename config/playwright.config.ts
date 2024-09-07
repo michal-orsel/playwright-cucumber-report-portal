@@ -43,6 +43,8 @@ export default defineConfig({
                 },
                 launchOptions: {
                     args: ['--start-maximized', '--window-size=1920,1080'], // --start-maximized start working when https://github.com/microsoft/playwright/issues/4046 is fixed
+                    // devtools: true,
+                    // timeout: 0
                 },
                 video: {
                     mode: "retain-on-failure",

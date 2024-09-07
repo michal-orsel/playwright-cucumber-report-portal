@@ -1,0 +1,104 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Scenario on current line",
+            "request": "launch",
+            "runtimeArgs": [
+                "cucumber-js",
+                "--profile",
+                "launch_file",
+                "${file}:${lineNumber}"
+            ],
+            "runtimeExecutable": "npx",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "outputCapture":"std"
+        },
+        {
+            "name": "Feature",
+            "request": "launch",
+            "runtimeArgs": [
+                "cucumber-js",
+                "--profile",
+                "launch_file",
+                "${file}"
+            ],
+            "runtimeExecutable": "npx",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "outputCapture":"std"
+        },
+        {
+            "name": "Rerun",
+            "request": "launch",
+            "runtimeArgs": [
+                "cucumber-js",
+                "--profile",
+                "rerun",
+                "@rerun.txt"
+            ],
+            "runtimeExecutable": "npx",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "outputCapture":"std"
+        },
+        {
+            "name": "Scenario on current line (no Report Portal)",
+            "request": "launch",
+            "runtimeArgs": [
+                "cucumber-js",
+                "--profile",
+                "launch_file_no_reportportal",
+                "${file}:${lineNumber}",
+            ],
+            "runtimeExecutable": "npx",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "outputCapture":"std"
+        },
+        {
+            "name": "Feature (no Report Portal)",
+            "request": "launch",
+            "runtimeArgs": [
+                "cucumber-js",
+                "--profile",
+                "launch_file_no_reportportal",
+                "${file}",
+            ],
+            "runtimeExecutable": "npx",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "outputCapture":"std"
+        },
+        {
+            "name": "Rerun (no Report Portal)",
+            "request": "launch",
+            "runtimeArgs": [
+                "cucumber-js",
+                "--profile",
+                "launch_file_no_reportportal",
+                "@rerun.txt",
+            ],
+            "runtimeExecutable": "npx",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "outputCapture":"std"
+        },
+    ]
+}

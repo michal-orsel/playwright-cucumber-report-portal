@@ -5,5 +5,10 @@
     "cucumber.glue": [
         "features/*.ts",
         "features/**/*.ts"
-    ]
+    ],
+    "debug.javascript.autoAttachFilter": "onlyWithFlag",
+    "cucumberTestRunner.profile": "cucumber_js_test_runner",
+    "cucumberTestRunner.env": {
+        "PROJECT": "Google Chrome FullHD",
+    }
 }

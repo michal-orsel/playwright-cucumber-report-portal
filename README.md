@@ -1,11 +1,14 @@
+# Playwright Cucumber Report Portal
+
 # Automation solution
 Basic automation solution for everyone who wants to use modern testing framework [Playwright](https://playwright.dev/) and like [Cucumber](https://cucumber.io/) tests. Results are continuously sent into [Report Portal](https://reportportal.io/). The Report Portal could be hosted locally. Thus whole solution is free. Have fun. PS: Follow [best practice](https://playwright.dev/docs/best-practices).
 
 Thanks Koushik to make nice [YouTube tutorials](https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1). This solution is based on it.
 
-### Features
+## Features
 - ✔ **Playwright config** basic support.
 - ✔ **Parallelization** tested on number 4.
+- ✔ **Run in Visual Studio Code** via F5 or launch button in Debug view. Also `CucumberJS Test Runner` extension could be used (basic setup is done).
 - ✔ **Screenshots** are captured after each step and at the end of scenario.
 - ✔ **Video** from test execution.
 - ✔ **Trace** file. Playwright produce test Trace file. It is zip file which could be used by command:
@@ -56,6 +59,31 @@ Note: Keep in mind that each config setup different technology. Let me explain i
 
 Note: Keep in mind that there is a cleaner which drop results and reports before each command `npm run test` and other scripts what execute it.
 
+#### Run in debug Visual Studio Code
+
+Scenarios could be run in Visual Studio Code in Debug view or by F5. Breakpoints could be used. There are configured few options in `.vscode/launch.json`.
+- Scenario on current line
+
+  Default. Run scenario, feature or example data line on current line number.
+
+- Feature
+
+  Run currently open feature file.
+
+- Rerun
+
+  Run rerun.txt file and set failures to the same file again. Does not matter what file is open.
+
+- Scenario on current line (no Report Portal)
+- Feature (no Report Portal)
+- Rerun (no Report Portal)
+
+#### Run via CucumberJS Test Runner extension
+There is another option to run scenarios. Install extension [CucumberJS Test Runner](https://marketplace.visualstudio.com/items?itemName=balrog994.cucumber-test-runner). Settings is predefine in `.vscode/settings.json`. It could be used in Visual Studio Code Testing view. Or use play buttons on the left side of open feature file. This runner has some limitations:
+- No way report to Report Portal.
+- Debugger is not always attached.
+But could be useful for local runs.
+
 ### Folder structure
 Folder structure is based on [ReportPortal cucumber agent](https://github.com/reportportal/agent-js-cucumber) (aka Report Portal client). There are some modifications which help to organize big projects. However there are also some technical limits. For example folder `support` cannot be moved out of folder `step_definitions`:
 
@@ -82,6 +110,9 @@ Folder structure is based on [ReportPortal cucumber agent](https://github.com/re
 There were implemented example tests to demonstrate functionality. Some scenarios fails. By default screenshots, video and Trace file are attached to Report Portal only when scenario fails (could be changed in configs).
 
 Log statements are shown in `features/step_definitions/steps/browser_steps.ts`
+
+### Without Report Portal
+Do you like this solution but Report Portal is not your cup of tea? Feel free deactivate it by removing formatter in `config/cucumber.js`. Remove files `reportportal_formatter.js`, `reportportal_formatter_rerun.js` and `config/reportportal_config.json`. And uninstall package `@reportportal/agent-js-cucumber`.
 
 # Sources
 - https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1
