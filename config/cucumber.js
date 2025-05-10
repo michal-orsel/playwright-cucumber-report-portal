@@ -50,6 +50,7 @@ module.exports = {
         retry: 0
     },
     launch_file_no_reportportal: {
+        ...configTemplate,
         parallel: 4,
         paths: [],
         format: [
@@ -61,6 +62,7 @@ module.exports = {
         retry: 0
     },
     cucumber_js_test_runner: {
+        ...configTemplate,
         parallel: 4,
         paths: [],
         retry: 0

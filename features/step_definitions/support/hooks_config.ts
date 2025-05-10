@@ -5,7 +5,7 @@ import playwright_config from "../../../playwright.config";
 let finalConfig: any | undefined;
 
 export const getPlaywrightConfig = async function getTestConfig() {
-    if(finalConfig) {
+    if (finalConfig) {
         return finalConfig;
     }
 
@@ -27,15 +27,18 @@ async function getProjectFromPlaywrightConfig(projectName: string) {
 }
 
 async function doStupidInheritance(project: Project<PlaywrightTestOptions & {}, PlaywrightWorkerOptions & {}>) {
-    let theConfig = { ...playwright_config };
-    theConfig.use = {
+    let myUse = {
         ...playwright_config?.use,
         ...playwright_config?.use?.launchOptions,
         ...project?.use,
-        ...project?.use?.launchOptions
+        ...project?.use?.launchOptions,
     };
-    theConfig.use.launchOptions = {
-        ...theConfig.use,
+    myUse.launchOptions = {
+        ...myUse,
     };
-    return theConfig;
+    return {
+        ...playwright_config,
+        ...myUse,
+        use: myUse
+    };
 }

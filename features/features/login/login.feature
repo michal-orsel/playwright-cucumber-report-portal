@@ -14,7 +14,7 @@ Feature: Login
     Then I see username "test" in account menu
 
   @login @priority-high @positive
-  Scenario: Login as test user - failing scenario to see attachements in Report Portal
+  Scenario: Login as test user - failing scenario to see attachments in Report Portal
     Given I fill username "test"
     Given I fill password "wrong password"
     When I click on login button

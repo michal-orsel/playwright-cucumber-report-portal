@@ -42,7 +42,7 @@ export default defineConfig({
                     height: 953,
                 },
                 launchOptions: {
-                    args: ['--start-maximized', '--window-size=1920,1080'], // --start-maximized start working when https://github.com/microsoft/playwright/issues/4046 is fixed
+                    // args: ['--start-maximized', '--window-size=1920,1080'], // --start-maximized start working when https://github.com/microsoft/playwright/issues/4046 is fixed
                     // devtools: true,
                     // timeout: 0
                 },
