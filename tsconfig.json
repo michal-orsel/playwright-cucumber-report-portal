@@ -9,5 +9,8 @@
         "module": "commonjs",
         "resolveJsonModule": true,
         "esModuleInterop": true
+    },
+    "ts-node": {
+        "transpileOnly": true
     }
 }
