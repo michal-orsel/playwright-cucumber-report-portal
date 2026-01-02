@@ -26,6 +26,7 @@ Thanks Koushik to make nice [YouTube tutorials](https://www.youtube.com/watch?v=
 ### Prerequisites
 - Install [Node.js](https://nodejs.org/) 
 - Download packages by command: `npm ci`
+- Install Playwright: `npx playwright install`
 
 ### Configuration
 [Report Portal configuration](https://github.com/reportportal/agent-js-cucumber) needs to be set. At least apiKey.
@@ -114,13 +115,25 @@ Log statements are shown in `features/step_definitions/steps/browser_steps.ts`
 ### Without Report Portal
 Do you like this solution but Report Portal is not your cup of tea? Feel free deactivate it by removing formatter in `config/cucumber.js`. Remove files `reportportal_formatter.js`, `reportportal_formatter_rerun.js` and `config/reportportal_config.json`. And uninstall package `@reportportal/agent-js-cucumber`.
 
+# Update packages
+Follow commands upgrade packages:
+
+  npx npm-check-updates
+  npm outdated
+  npx ncu --upgrade
+  npm install
+
+If you see "NCU Real Time Weather is Running." then run following command and try upgrade again:
+
+  npm install -g npm-check-updates
+
 # Sources
 - https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1
 - https://playwright.dev/
 - https://cucumber.io/docs/installation/javascript/
 - https://github.com/reportportal/agent-js-cucumber
+- https://github.com/reportportal/reportportal-mcp-server
 - https://github.com/docker/awesome-compose/tree/master/wordpress-mysql
-
 
 # Known issues
 - Attachments with messages are correct in Report Portal but not correct in HTML reports. That is reason why current setup does not use them.
