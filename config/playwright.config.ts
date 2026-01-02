@@ -9,12 +9,18 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
     outputDir: "./results/",
+    timeout: 10_000,
     use: {
         baseURL: "http://localhost:8099",
         launchOptions: {
             headless: true,
         },
         ignoreHTTPSErrors: true,
+        actionTimeout: 5_000,
+        navigationTimeout: 10_000
+    },
+    expect: {
+        timeout: 5_000
     },
     projects: [
         {

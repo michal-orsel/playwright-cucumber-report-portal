@@ -3,6 +3,7 @@ import { Browser, BrowserContext, BrowserContextOptions } from "@playwright/test
 import { fixture } from "./fixture";
 import { getPlaywrightConfig } from "./hooks_config";
 import { startBrowser } from "./hooks_browser";
+import { getExpect } from "./hooks_expect";
 import { attachScreenshot } from "./hooks_screenshots";
 import { addVideoSettings, attachVideo } from "./hooks_video";
 import { startTracing, attachTrace } from "./hooks_trace";
@@ -25,6 +26,8 @@ Before(async function ({ pickle }) {
     browserContextOptions = await addVideoSettings(browserContextOptions, pickle);
     browserContext = await browser.newContext(browserContextOptions);
     browserContext = await startTracing(browserContext);
+    fixture.browserContext = browserContext;
+    fixture.expect = await getExpect();
     fixture.page = await browserContext.newPage();
 });
 

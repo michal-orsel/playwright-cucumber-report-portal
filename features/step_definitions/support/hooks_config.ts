@@ -42,3 +42,7 @@ async function doStupidInheritance(project: Project<PlaywrightTestOptions & {}, 
         use: myUse
     };
 }
+
+export const getPlaywrightExpectConfig = async function getPlaywrightExpectConfig() {
+    return playwright_config?.expect;
+}
