@@ -1,7 +1,7 @@
 {
   "apiKey": "second_H9vM9aB_RDS9KfY_fVihn3nKlNE8xugZ6gKSouquWvyqwUNhX_i5gvJVr-IlKbsZ",
   "endpoint": "http://localhost:8080/api/v1",
-  "launch": "lunch_name",
+  "launch": "launch_name",
   "project": "superadmin_personal",
   "description": "Launch description",
   "attributes": ["attribute1", "attribute2"],
