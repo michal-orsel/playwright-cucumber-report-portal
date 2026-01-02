@@ -23,6 +23,7 @@ let configTemplate = {
         "./reportportal_formatter.js",
         ['html', `${path.join(config.pathToReports, "cucumber_report.html")}`],
         ['json', `${path.join(config.pathToReports, "cucumber_report.json")}`],
+        ['junit', `${path.join(config.pathToReports, "cucumber_report.xml")}`],
         "rerun:@rerun.txt"
     ],
     retry: 1
@@ -39,6 +40,7 @@ module.exports = {
             "./reportportal_formatter_rerun.js",
             ['html', `${path.join(config.pathToReports, "cucumber_report_rerun.html")}`],
             ['json', `${path.join(config.pathToReports, "cucumber_report_rerun.json")}`],
+            ['junit', `${path.join(config.pathToReports, "cucumber_report_rerun.xml")}`],
             "rerun:@rerun.txt"
         ],
         retry: 0
@@ -57,6 +59,7 @@ module.exports = {
             "summary",
             ['html', `${path.join(config.pathToReports, "cucumber_report.html")}`],
             ['json', `${path.join(config.pathToReports, "cucumber_report.json")}`],
+            ['junit', `${path.join(config.pathToReports, "cucumber_report.xml")}`],
             "rerun:@rerun.txt"
         ],
         retry: 0
