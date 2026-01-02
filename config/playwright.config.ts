@@ -17,7 +17,8 @@ export default defineConfig({
         },
         ignoreHTTPSErrors: true,
         actionTimeout: 10_000,
-        navigationTimeout: 10_000
+        navigationTimeout: 10_000,
+        acceptDownloads: true
     },
     expect: {
         timeout: 10_000
