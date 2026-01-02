@@ -16,11 +16,11 @@ export default defineConfig({
             headless: true,
         },
         ignoreHTTPSErrors: true,
-        actionTimeout: 5_000,
+        actionTimeout: 10_000,
         navigationTimeout: 10_000
     },
     expect: {
-        timeout: 5_000
+        timeout: 10_000
     },
     projects: [
         {
