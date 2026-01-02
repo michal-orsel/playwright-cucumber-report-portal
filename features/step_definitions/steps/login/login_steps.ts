@@ -1,5 +1,4 @@
 import { Given, When, Then } from "@cucumber/cucumber"
-import { expect } from "@playwright/test"
 import { fixture } from "../../support/fixture";
 import { loginFormSelectors } from "../../../selectors/login/login_form_selectors";
 
@@ -21,7 +20,7 @@ Then('I see login form', async function () {
 });
 
 Then('I see login error message {string}', async function (expected_error_message) {
-    await expect(fixture.page.locator(loginFormSelectors.loginErrorMessage)).toBeVisible();
+    await fixture.expect(fixture.page.locator(loginFormSelectors.loginErrorMessage)).toBeVisible();
     this.debug("Login error message: " + await fixture.page.locator(loginFormSelectors.loginErrorMessage).textContent());
-    await expect(fixture.page.locator(loginFormSelectors.loginErrorMessage)).toHaveText(expected_error_message)
+    await fixture.expect(fixture.page.locator(loginFormSelectors.loginErrorMessage)).toHaveText(expected_error_message)
 });

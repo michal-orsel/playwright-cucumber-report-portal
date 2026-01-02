@@ -1,4 +1,5 @@
-import { expect, type Locator, type Page } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
+import { fixture } from "../step_definitions/support/fixture";
 import { loginFormSelectors } from "../selectors/login/login_form_selectors";
 import { getPlaywrightConfig } from "../step_definitions/support/hooks_config";
 
@@ -26,7 +27,7 @@ export class LoginPom {
     }
 
     async getStarted() {
-        await expect(this.getLoginForm).toBeVisible();
+        await fixture.expect(this.getLoginForm).toBeVisible();
     }
 
     async login({ username, password }) {
@@ -36,7 +37,7 @@ export class LoginPom {
     }
 
     async noLoginErrorsPresent() {
-        await expect(this.getLoginErrorMessage).not.toBeVisible();
+        await fixture.expect(this.getLoginErrorMessage).not.toBeVisible();
     }
 
     async pageObjectModel() {
