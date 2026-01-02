@@ -6,6 +6,7 @@
         "run",
         "-i",
         "--rm",
+        "--network=host",
         "-e",
         "RP_API_TOKEN",
         "-e",
