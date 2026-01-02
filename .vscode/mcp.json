@@ -1,0 +1,22 @@
+{
+  "reportportal": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e",
+      "RP_API_TOKEN",
+      "-e",
+      "RP_HOST",
+      "-e",
+      "RP_PROJECT",
+      "reportportal/mcp-server"
+    ],
+    "env": {
+      "RP_API_TOKEN": "test_THwj72wVQpeFmGFHYs3tSP6wL9UgliudD_oMj86TOFLWlNkOKu2ImvHXrQVEQVd4",
+      "RP_HOST": "http://localhost:8080",
+      "RP_PROJECT": "superadmin_personal"
+    }
+  }
+}
