@@ -13,14 +13,14 @@ let browser: Browser;
 let browserContext: BrowserContext;
 let stepNumber: number;
 
+setDefaultTimeout(config.defaultTimeout);
+
 BeforeAll(async function () {
     browser = await startBrowser();
 });
 
 Before(async function ({ pickle }) {
     stepNumber = 1;
-    setDefaultTimeout(config.defaultTimeout);
-
     let browserContextOptions = {} as BrowserContextOptions;
     browserContextOptions = await getPlaywrightConfig();
     browserContextOptions = await addVideoSettings(browserContextOptions, pickle);
