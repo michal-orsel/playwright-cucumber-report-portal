@@ -20,6 +20,13 @@
         "RP_HOST": "http://localhost:8080",
         "RP_PROJECT": "superadmin_personal"
       }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@executeautomation/playwright-mcp-server"
+      ]
     }
   }
 }
