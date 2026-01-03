@@ -72,9 +72,11 @@ module.exports = {
     },
     pipeline: {
         ...configTemplate,
-        parallel: 4,
+        parallel: 2,
         format: [
             "summary",
+            ['html', `${path.join(config.pathToReports, "cucumber_report.html")}`],
+            ['json', `${path.join(config.pathToReports, "cucumber_report.json")}`],
             ['junit', `${path.join(config.pathToReports, "cucumber_report.xml")}`],
             "rerun:@rerun.txt"
         ],

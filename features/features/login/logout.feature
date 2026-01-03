@@ -5,7 +5,7 @@ Feature: Logout
   Background: 
     Given I navigate to relative url "/wp-admin"
 
-  @logout @priority-high @positive
+  @logout @priority-high @positive @pipeline
   Scenario: Logout as test user
     Given I fill username "test"
     Given I fill password "test"

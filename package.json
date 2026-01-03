@@ -9,7 +9,7 @@
     "test": "cucumber-js --tags \"not (@wip or @manual)\"",
     "tag-install-wordpress": "cucumber-js -p pipeline --tags \"@install-wordpress\"",
     "test:rerun": "cucumber-js -p rerun @rerun.txt",
-    "test:pipeline": "cucumber-js -p pipeline --tags \"not (@wip or @manual)\"",
+    "test:pipeline": "cucumber-js -p pipeline --tags \"@pipeline and not (@wip or @manual)\"",
     "tag-login": "npm run test -- --tags \"@login and not (@wip or @manual)\"",
     "tag-login:positive": "npm run test -- --tags \"@login and @positive and not (@wip or @manual)\"",
     "tag-login:negative": "npm run test -- --tags \"@login and @negative and not (@wip or @manual)\"",
