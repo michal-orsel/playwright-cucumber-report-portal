@@ -8,6 +8,7 @@
     "pretest": "npm run wipe_reports_and_results_folders",
     "test": "cucumber-js --tags \"not (@wip or @manual)\"",
     "test:rerun": "cucumber-js -p rerun @rerun.txt",
+    "tag-install-wordpress": "cucumber-js --tags \"@install\"",
     "tag-login": "npm run test -- --tags \"@login and not (@wip or @manual)\"",
     "tag-login:positive": "npm run test -- --tags \"@login and @positive and not (@wip or @manual)\"",
     "tag-login:negative": "npm run test -- --tags \"@login and @negative and not (@wip or @manual)\"",

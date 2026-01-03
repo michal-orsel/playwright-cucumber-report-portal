@@ -127,6 +127,21 @@ If you see "NCU Real Time Weather is Running." then run following command and tr
 
   npm install -g npm-check-updates
 
+# Test stack
+
+Docker images for Report Portal and WordPress are ready in the test-stack folder. The test stack uses a unified docker-compose.yml that includes both Report Portal and WordPress configurations.
+
+Steps to set up the test stack:
+
+1. Navigate to test-stack folder: `cd test-stack`
+2. Start all services: `docker compose up -d`
+3. Wait for services to start (ReportPortal may take a few minutes)
+4. Access ReportPortal at http://localhost:8080 (username: `superadmin`, password: `erebus`)
+5. Create an API key from Report Portal and configure it in `config/reportportal_config.json`
+6. Navigate back to project root: `cd ..`
+7. Run WordPress installation: `npm run install-wordpress`
+8. Access WordPress at http://localhost:8099
+
 # Sources
 - https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1
 - https://playwright.dev/
@@ -137,7 +152,6 @@ If you see "NCU Real Time Weather is Running." then run following command and tr
 
 # Known issues
 - Attachments with messages are correct in Report Portal but not correct in HTML reports. That is reason why current setup does not use them.
-- Due to https://github.com/reportportal/agent-js-cucumber/issues/155 issue it is not possible to update to cucumber version 10 at this moment.
 - Playwright config is processed different way then Playwright do it itself. Processing is done in `features\step_definitions\support\hooks_config.ts`.
   - Field `use.launchOptions` is used for start browser.
   - Field `use` is used as a `BrowserContextOptions`. Some values are injected in Before hook in `features\step_definitions\support\hooks.ts`. For example video recording setup.
