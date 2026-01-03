@@ -42,7 +42,7 @@ export default defineConfig({
                 ...devices['Desktop Chrome'], 
                 browserName: "chromium",
                 channel: 'chrome',
-                headless: false,
+                headless: true,
                 /** View port of Chrome 122 on Full HD screen, Windows 10 Pro 22H2 */
                 viewport: {
                     width: 1920,
