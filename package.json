@@ -7,7 +7,7 @@
     "wipe_reports_and_results_folders": "npx ts-node wipe_reports_and_results_folders.ts",
     "pretest": "npm run wipe_reports_and_results_folders",
     "test": "cucumber-js --tags \"not (@wip or @manual)\"",
-    "tag-install-wordpress": "cucumber-js --tags \"@install-wordpress\"",
+    "tag-install-wordpress": "cucumber-js -p pipeline --tags \"@install-wordpress\"",
     "test:rerun": "cucumber-js -p rerun @rerun.txt",
     "test:pipeline": "cucumber-js -p pipeline --tags \"not (@wip or @manual)\"",
     "tag-login": "npm run test -- --tags \"@login and not (@wip or @manual)\"",
