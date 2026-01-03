@@ -14,4 +14,4 @@ export const installSelectors = {
     
     // Success page
     successHeading: 'h1',
-}
+} as const;
