@@ -55,7 +55,8 @@ export default defineConfig({
                 },
                 video: {
                     mode: "retain-on-failure",
-                    // size: { width: 1920, height: 953 }
+                    // set video size to do not lose quality
+                    size: { width: 1920, height: 953 }
                 },
                 trace: "retain-on-failure",
                 screenshot: "only-on-failure"
