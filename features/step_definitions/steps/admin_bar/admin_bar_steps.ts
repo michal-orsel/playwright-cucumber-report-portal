@@ -4,7 +4,7 @@ import { adminBarSelectors } from "../../../selectors/admin_bar/admin_bar_select
 import { dashboardSelectors } from "../../../selectors/dashboard/dashboard_selectors";
 
 When('I hover on account menu in admin bar', async function () {
-    await fixture.expect(fixture.page.locator(dashboardSelectors.widgetLoading)).toBeVisible();
+    await fixture.expect(fixture.page.locator(dashboardSelectors.widgetLoading)).toBeHidden();
     await fixture.page.locator(adminBarSelectors.accountMenuLink).hover();
 });
 
