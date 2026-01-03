@@ -69,5 +69,15 @@ module.exports = {
         parallel: 4,
         paths: [],
         retry: 0
+    },
+    pipeline: {
+        ...configTemplate,
+        parallel: 4,
+        format: [
+            "summary",
+            ['junit', `${path.join(config.pathToReports, "cucumber_report.xml")}`],
+            "rerun:@rerun.txt"
+        ],
+        retry: 0
     }
 }
