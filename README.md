@@ -1,17 +1,17 @@
 # Playwright Cucumber Report Portal
 
 # Automation solution
-Basic automation solution for everyone who wants to use modern testing framework [Playwright](https://playwright.dev/) and like [Cucumber](https://cucumber.io/) tests. Results are continuously sent into [Report Portal](https://reportportal.io/). The Report Portal could be hosted locally. Thus whole solution is free. Have fun. PS: Follow [best practice](https://playwright.dev/docs/best-practices).
+Basic automation solution for everyone who wants to use the modern testing framework [Playwright](https://playwright.dev/) and likes [Cucumber](https://cucumber.io/) tests. Results are continuously sent into [Report Portal](https://reportportal.io/). The Report Portal can be hosted locally. Thus the whole solution is free. Have fun. PS: Follow [best practice](https://playwright.dev/docs/best-practices).
 
-Thanks Koushik to make nice [YouTube tutorials](https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1). This solution is based on it.
+Thanks to Koushik for making great [YouTube tutorials](https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1). This solution is based on it.
 
 ## Features
 - ✔ **Playwright config** basic support.
 - ✔ **Parallelization** tested on number 4.
-- ✔ **Run in Visual Studio Code** via F5 or launch button in Debug view. Also `CucumberJS Test Runner` extension could be used (basic setup is done).
-- ✔ **Screenshots** are captured after each step and at the end of scenario.
+- ✔ **Run in Visual Studio Code** via F5 or launch button in Debug view. Also, the `CucumberJS Test Runner` extension can be used (basic setup is done).
+- ✔ **Screenshots** are captured after each step and at the end of the scenario.
 - ✔ **Video** from test execution.
-- ✔ **Trace** file. Playwright produce test Trace file. It is zip file which could be used by command:
+- ✔ **Trace** file. Playwright produces a test trace file. It is a zip file which can be used by the command:
 
     `npx playwright show-trace path/to/trace.zip`
 
@@ -19,7 +19,7 @@ Thanks Koushik to make nice [YouTube tutorials](https://www.youtube.com/watch?v=
 
 # How to use
 ## Dev environment
- Recommended to use [Visual Studio Code](https://code.visualstudio.com/) with extensions:
+ It is recommended to use [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
   - [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
   - [Cucumber](https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official)
 
@@ -32,7 +32,7 @@ Thanks Koushik to make nice [YouTube tutorials](https://www.youtube.com/watch?v=
 [Report Portal configuration](https://github.com/reportportal/agent-js-cucumber) needs to be set. At least apiKey.
 - Update `config/reportportal_config.json`
 
-There are more places what could be configured but not all are needed for the first run:
+There are more places that can be configured, but not all are needed for the first run:
 - config/config.json
 - config/reportportal_config.json
 - config/cucumber.js
@@ -40,29 +40,29 @@ There are more places what could be configured but not all are needed for the fi
 - packages.json
 - tsconfig.json
 
-Everything is mixed together in hooks files:
+Everything is mixed together in the hooks files:
 - features/step_definitions/support/hooks.ts
 
 Some handy configuration examples:
-- Profiles could be defined in `config/playwright.config.ts`. They should contains Browsers (chromium, firefox, webkit) and their specific setup. Currently this framework cannot run more profiles at once.
-- To select what profile should be executed is set in `config/config.json`. There is also possible to select profile in command via environment variable. Example is in `package.json` in script `test-project-in-command-mobile-chrome`
+- Profiles can be defined in `config/playwright.config.ts`. They should contain browsers (chromium, firefox, webkit) and their specific setup. Currently, this framework cannot run multiple profiles at once.
+- To select which profile should be executed, configure it in `config/config.json`. It is also possible to select a profile via command line using an environment variable. An example is in `package.json` in the script `test-project-in-command-mobile-chrome`
 - Parallelization is configured in `config/cucumber.js`
 - Screenshots, video and trace files are configured in `config/playwright.config.ts`
-- Failed scenarios are executed again automatically due to `retry` in `config/cucumber.js`. If they fail again then they are set in @rerun.txt. And it is possible run by command `npm run test:rerun`
+- Failed scenarios are executed again automatically due to `retry` in `config/cucumber.js`. If they fail again, they are saved to @rerun.txt. It is possible to run them with the command `npm run test:rerun`
 
-Note: Keep in mind that each config setup different technology. Let me explain it on example: Screenshots could be enabled in `config/reportportal_config.json` but if they are not enabled in `config/playwright.config.ts` then Playwright do not take any screenshot. Thus Report Portal client does not have any screenshot to upload.
+Note: Keep in mind that each config sets up different technology. Let me explain with an example: Screenshots can be enabled in `config/reportportal_config.json`, but if they are not enabled in `config/playwright.config.ts`, then Playwright does not take any screenshots. Thus, the Report Portal client does not have any screenshots to upload.
 
 ### To run:
 - All scenarios use command: `npm run test`
 - To rerun failed scenarios use command: `npm run test:rerun`
 - To run specific tests use command (just example): `npm run tag-login:positive`
-- To run different profile then the one what is specified in `config/config.json` use example script `npm run test-project-in-command-mobile-chrome`
+- To run a different profile than the one specified in `config/config.json`, use the example script `npm run test-project-in-command-mobile-chrome`
 
-Note: Keep in mind that there is a cleaner which drop results and reports before each command `npm run test` and other scripts what execute it.
+Note: Keep in mind that there is a cleaner which drops results and reports before each `npm run test` command and other scripts that execute it.
 
 #### Run in debug Visual Studio Code
 
-Scenarios could be run in Visual Studio Code in Debug view or by F5. Breakpoints could be used. There are configured few options in `.vscode/launch.json`.
+Scenarios can be run in Visual Studio Code in the Debug view or by pressing F5. Breakpoints can be used. There are a few configured options in `.vscode/launch.json`.
 - Scenario on current line
 
   Default. Run scenario, feature or example data line on current line number.
@@ -73,20 +73,20 @@ Scenarios could be run in Visual Studio Code in Debug view or by F5. Breakpoints
 
 - Rerun
 
-  Run rerun.txt file and set failures to the same file again. Does not matter what file is open.
+  Run the rerun.txt file and set failures to the same file again. It does not matter what file is open.
 
 - Scenario on current line (no Report Portal)
 - Feature (no Report Portal)
 - Rerun (no Report Portal)
 
 #### Run via CucumberJS Test Runner extension
-There is another option to run scenarios. Install extension [CucumberJS Test Runner](https://marketplace.visualstudio.com/items?itemName=balrog994.cucumber-test-runner). Settings is predefine in `.vscode/settings.json`. It could be used in Visual Studio Code Testing view. Or use play buttons on the left side of open feature file. This runner has some limitations:
-- No way report to Report Portal.
-- Debugger is not always attached.
-But could be useful for local runs.
+There is another option to run scenarios. Install the extension [CucumberJS Test Runner](https://marketplace.visualstudio.com/items?itemName=balrog994.cucumber-test-runner). Settings are predefined in `.vscode/settings.json`. It can be used in the Visual Studio Code Testing view. Or use the play buttons on the left side of an open feature file. This runner has some limitations:
+- No way to report to Report Portal.
+- The debugger is not always attached.
+However, it could be useful for local runs.
 
 ### Folder structure
-Folder structure is based on [ReportPortal cucumber agent](https://github.com/reportportal/agent-js-cucumber) (aka Report Portal client). There are some modifications which help to organize big projects. However there are also some technical limits. For example folder `support` cannot be moved out of folder `step_definitions`:
+Folder structure is based on [ReportPortal cucumber agent](https://github.com/reportportal/agent-js-cucumber) (aka Report Portal client). There are some modifications which help to organize big projects. However, there are also some technical limits. For example, the folder `support` cannot be moved out of the folder `step_definitions`:
 
     ├── config                             ←— config files
     ├── docker                             ←— system (Wordpress) under test and Report Portal docker yml files
@@ -108,22 +108,22 @@ Folder structure is based on [ReportPortal cucumber agent](https://github.com/re
     └── package.json
 
 ### Examples
-There were implemented example tests to demonstrate functionality. Some scenarios fails. By default screenshots, video and Trace file are attached to Report Portal only when scenario fails (could be changed in configs).
+Example tests are implemented to demonstrate functionality. Some scenarios fail. By default, screenshots, video, and trace files are attached to Report Portal only when a scenario fails (this can be changed in the configs).
 
 Log statements are shown in `features/step_definitions/steps/browser_steps.ts`
 
 ### Without Report Portal
-Do you like this solution but Report Portal is not your cup of tea? Feel free deactivate it by removing formatter in `config/cucumber.js`. Remove files `reportportal_formatter.js`, `reportportal_formatter_rerun.js` and `config/reportportal_config.json`. And uninstall package `@reportportal/agent-js-cucumber`.
+Do you like this solution but Report Portal is not your cup of tea? Feel free to deactivate it by removing the formatter in `config/cucumber.js`. Remove the files `reportportal_formatter.js`, `reportportal_formatter_rerun.js`, and `config/reportportal_config.json`. Then uninstall the package `@reportportal/agent-js-cucumber`.
 
 # Update packages
-Follow commands upgrade packages:
+The following commands upgrade packages:
 
   npx npm-check-updates
   npm outdated
   npx ncu --upgrade
   npm install
 
-If you see "NCU Real Time Weather is Running." then run following command and try upgrade again:
+If you see "NCU Real Time Weather is Running.", then run the following command and try upgrading again:
 
   npm install -g npm-check-updates
 
@@ -131,7 +131,9 @@ If you see "NCU Real Time Weather is Running." then run following command and tr
 
 Docker images for Report Portal and WordPress are ready in the test-stack folder. The test stack uses a unified docker-compose.yml that includes both Report Portal and WordPress configurations.
 
-Steps to set up the test stack:
+[Docker](https://www.docker.com/) needs to be installed to set up the testing environment.
+
+## Setup steps
 
 1. Navigate to test-stack folder: `cd test-stack`
 2. Start all services: `docker compose up -d`
@@ -139,8 +141,12 @@ Steps to set up the test stack:
 4. Access ReportPortal at http://localhost:8080 (username: `superadmin`, password: `erebus`)
 5. Create an API key from Report Portal and configure it in `config/reportportal_config.json`
 6. Navigate back to project root: `cd ..`
-7. Run WordPress installation: `npm run install-wordpress`
+7. Run WordPress installation: `npm run tag-install-wordpress` or install manually. WordPress should be set to English for user `test` with password `test` and email `test@example.com`
 8. Access WordPress at http://localhost:8099
+
+If you prefer to run services separately:
+- Report Portal: `docker compose -f ./test-stack/report_portal/docker-compose.yaml up`
+- WordPress: `docker compose -f ./test-stack/wordpress/docker-compose.yaml up`
 
 # Sources
 - https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1
@@ -149,57 +155,32 @@ Steps to set up the test stack:
 - https://github.com/reportportal/agent-js-cucumber
 - https://github.com/reportportal/reportportal-mcp-server
 - https://github.com/docker/awesome-compose/tree/master/wordpress-mysql
+- https://github.com/reportportal/reportportal/blob/master/docker-compose.yml
 
 # Known issues
-- Attachments with messages are correct in Report Portal but not correct in HTML reports. That is reason why current setup does not use them.
-- Playwright config is processed different way then Playwright do it itself. Processing is done in `features\step_definitions\support\hooks_config.ts`.
-  - Field `use.launchOptions` is used for start browser.
-  - Field `use` is used as a `BrowserContextOptions`. Some values are injected in Before hook in `features\step_definitions\support\hooks.ts`. For example video recording setup.
+- Attachments with messages are correct in Report Portal but not correct in HTML reports. That is the reason why the current setup does not use them.
+- Playwright config is processed in a different way than Playwright does it itself. Processing is done in `features/step_definitions/support/hooks_config.ts`.
+  - Field `use.launchOptions` is used to start the browser.
+  - Field `use` is used as a `BrowserContextOptions`. Some values are injected in Before hook in `features/step_definitions/support/hooks.ts`. For example video recording setup.
   - Simple inheritance was implemented. A `project.use` inherits data from `use`. 
   Full support is requested in ticket: https://github.com/microsoft/playwright/issues/11975
 - Playwright cannot open browser full screen: https://github.com/microsoft/playwright/issues/4046 
-- Setup video recording to `on-first-retry` is the same like `retain-on-failure`. Reason is that there is no way how to recognize if current run is retry or not.
+- Setting up video recording to `on-first-retry` is the same as `retain-on-failure`. The reason is that there is no way to recognize if the current run is a retry or not.
 
 ---
 
 # Boring things at the end
 ### Verified on
 - Windows 10 Pro 22H2
-- NodeJs 20.11.0
-- Npm 10.4.0
-- Docker Desktop version 24.0.7, build afdd53b
-- Docker Compose version v2.23.3-desktop.2
-- Report Portal API Service: 5.10.1; Index Service: 5.10.0; Jobs Service: 5.10.0; Authorization Service: 5.10.0; Service UI: 5.10.0;
-- WordPress 6.4.3
-- Visual Studio Code 1.86.0 with extensions:
-    - Cucumber v1.8.1
-    - Playwright Test for VSCode v1.0.21
-
-## My testing setup
-[Docker](https://www.docker.com/) needs to be installed to setup testing environment.
-
-#### Report Portal
-My [Report Portal](https://reportportal.io/) is running locally in [Docker](https://www.docker.com/)
-
-To run use command: 
-`docker compose -f .\docker\report_portal\docker-compose.yml up`
-
-Running http://localhost:8080/
-Default username: `superadmin` and password `erebus`
-
-Docker compose file source: https://github.com/reportportal/reportportal/blob/master/docker-compose.yml
-
-Results are available on http://localhost:8080/ui/#superadmin_personal/launches/all
-
-#### WordPress
-System under test. Running in [Docker](https://www.docker.com/).
-
-To run use command: `docker compose -f .\docker\wordpress\docker-compose.yaml up`
-
-Running http://localhost:8099/
-Tests expect that Wordpress is installed in English for user `test` with password `test` and email `test@example.com`.
-
-Docker compose file source: https://github.com/docker/awesome-compose/tree/master/wordpress-mysql
+- NodeJs 22.17.1
+- Npm 10.9.2
+- Docker Desktop version 28.3.2, build 578ccf6
+- Docker Compose version v2.38.2-desktop.1
+- Report Portal API Service: 5.15.0; Index Service: 5.15.0; Jobs Service: 5.15.0; Authorization Service: 5.15.0; Service UI: 5.15.0;
+- WordPress 6.9
+- Visual Studio Code 1.107.1 with extensions:
+    - Cucumber v1.11.0
+    - Playwright Test for VSCode v1.1.17
 
 ---
 

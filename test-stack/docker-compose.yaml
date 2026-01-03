@@ -2,5 +2,5 @@ name: playwright-cucumber-report-portal-test-stack
 
 include:
   - wordpress/docker-compose.yaml
-  - report_portal/docker-compose.yml
+  - report_portal/docker-compose.yaml
 
