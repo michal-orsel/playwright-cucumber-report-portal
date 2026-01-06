@@ -70,11 +70,10 @@ module.exports = {
         paths: [],
         retry: 0
     },
-    pipeline: {
+    no_report_portal: {
         ...configTemplate,
         parallel: 4,
         format: [
-            // No reportportal formatter in pipeline runs
             "summary",
             ['html', `${path.join(config.pathToReports, "cucumber_report.html")}`],
             ['json', `${path.join(config.pathToReports, "cucumber_report.json")}`],
