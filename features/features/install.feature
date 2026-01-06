@@ -1,12 +1,12 @@
-Feature: Install wordpress
+Feature: Install
 
-  Install wordpress
+  Installation scenario example
 
   Background: 
     Given I navigate to relative url "/"
 
-  @install-wordpress @positive
-  Scenario: Install wordpress
+  @install @positive
+  Scenario: Install
     Given I select language English
     When I click on language continue button
     Given I fill site title "test"
