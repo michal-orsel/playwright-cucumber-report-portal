@@ -1,15 +1,13 @@
 # Playwright Cucumber Report Portal
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE.txt)
-[![TypeScript](https://img.shields.io/badge/TypeScript-77.6%25-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ed?logo=docker&logoColor=white)](https://www.docker.com/)
-[![Playwright](https://img.shields.io/badge/Playwright-Supported-45ba4b?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-22.17.1-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Report Portal](https://img.shields.io/badge/Report_Portal-5.15.0-00c7d4)](https://reportportal.io/)
 
 ---
 
-# Automation solution
+## Automation solution
 Basic automation solution for everyone who wants to use the modern testing framework [Playwright](https://playwright.dev/) and likes [Cucumber](https://cucumber.io/) tests. Results are continuously sent into [Report Portal](https://reportportal.io/). The Report Portal can be hosted locally. Thus the whole solution is free. Have fun. PS: Follow [best practice](https://playwright.dev/docs/best-practices).
 
 Thanks to Koushik for making great [YouTube tutorials](https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1). This solution is based on it.
@@ -26,18 +24,18 @@ Thanks to Koushik for making great [YouTube tutorials](https://www.youtube.com/w
 
     More info: https://playwright.dev/docs/trace-viewer
 
-# How to use
-## Dev environment
+## How to use
+#### Dev environment
  It is recommended to use [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
   - [Playwright Test for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
   - [Cucumber](https://marketplace.visualstudio.com/items?itemName=CucumberOpen.cucumber-official)
 
-### Prerequisites
+#### Prerequisites
 - Install [Node.js](https://nodejs.org/) 
 - Download packages by command: `npm ci`
 - Install Playwright: `npx playwright install`
 
-### Configuration
+#### Configuration
 [Report Portal configuration](https://github.com/reportportal/agent-js-cucumber) needs to be set. At least apiKey.
 - Update `config/reportportal_config.json`
 
@@ -61,7 +59,7 @@ Some handy configuration examples:
 
 Note: Keep in mind that each config sets up different technology. Let me explain with an example: Screenshots can be enabled in `config/reportportal_config.json`, but if they are not enabled in `config/playwright.config.ts`, then Playwright does not take any screenshots. Thus, the Report Portal client does not have any screenshots to upload.
 
-### To run:
+#### To run:
 - All scenarios use command: `npm run test`
 - To rerun failed scenarios use command: `npm run test:rerun`
 - To run specific tests use command (just example): `npm run tag-login:positive`
@@ -69,7 +67,7 @@ Note: Keep in mind that each config sets up different technology. Let me explain
 
 Note: Keep in mind that there is a cleaner which drops results and reports before each `npm run test` command and other scripts that execute it.
 
-#### Run in debug Visual Studio Code
+##### Run in debug Visual Studio Code
 
 Scenarios can be run in Visual Studio Code in the Debug view or by pressing F5. Breakpoints can be used. There are a few configured options in `.vscode/launch.json`.
 - Scenario on current line
@@ -88,13 +86,13 @@ Scenarios can be run in Visual Studio Code in the Debug view or by pressing F5. 
 - Feature (no Report Portal)
 - Rerun (no Report Portal)
 
-#### Run via CucumberJS Test Runner extension
+##### Run via CucumberJS Test Runner extension
 There is another option to run scenarios. Install the extension [CucumberJS Test Runner](https://marketplace.visualstudio.com/items?itemName=balrog994.cucumber-test-runner). Settings are predefined in `.vscode/settings.json`. It can be used in the Visual Studio Code Testing view. Or use the play buttons on the left side of an open feature file. This runner has some limitations:
 - No way to report to Report Portal.
 - The debugger is not always attached.
 However, it could be useful for local runs.
 
-### Folder structure
+#### Folder structure
 Folder structure is based on [ReportPortal cucumber agent](https://github.com/reportportal/agent-js-cucumber) (aka Report Portal client). There are some modifications which help to organize big projects. However, there are also some technical limits. For example, the folder `support` cannot be moved out of the folder `step_definitions`:
 
     ├── config                             ←— config files
@@ -116,15 +114,15 @@ Folder structure is based on [ReportPortal cucumber agent](https://github.com/re
     ├── results                            ←— screenshots, videos, traces (produced by Playwright)
     └── package.json
 
-### Examples
+#### Examples
 Example tests are implemented to demonstrate functionality. Some scenarios fail. By default, screenshots, video, and trace files are attached to Report Portal only when a scenario fails (this can be changed in the configs).
 
 Log statements are shown in `features/step_definitions/steps/browser_steps.ts`
 
-### Without Report Portal
+#### Without Report Portal
 Do you like this solution but Report Portal is not your cup of tea? Feel free to deactivate it by removing the formatter in `config/cucumber.js`. Remove the files `reportportal_formatter.js`, `reportportal_formatter_rerun.js`, and `config/reportportal_config.json`. Then uninstall the package `@reportportal/agent-js-cucumber`.
 
-# Update packages
+## Update packages
 The following commands upgrade packages:
 
     npx npm-check-updates
@@ -136,13 +134,13 @@ If you see "NCU Real Time Weather is Running.", then run the following command a
 
     npm install -g npm-check-updates
 
-# Test stack
+## Test stack
 
 Docker images for Report Portal and WordPress are ready in the test-stack folder. The test stack uses a unified docker-compose.yml that includes both Report Portal and WordPress configurations.
 
 [Docker](https://www.docker.com/) needs to be installed to set up the testing environment.
 
-## Setup steps
+### Setup steps
 
 For initial test stack setup, use the script `init_test_stack.sh` or `init_test_stack.bat`. Keep in mind that [Prerequisites](#Prerequisites) needs to be done before.
 
@@ -163,7 +161,7 @@ If you prefer to run services separately:
 - Report Portal: `docker compose -f ./test-stack/report_portal/docker-compose.yaml up`
 - WordPress: `docker compose -f ./test-stack/wordpress/docker-compose.yaml up`
 
-# Sources
+## Sources
 - https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1
 - https://playwright.dev/
 - https://cucumber.io/docs/installation/javascript/
@@ -172,7 +170,7 @@ If you prefer to run services separately:
 - https://github.com/docker/awesome-compose/tree/master/wordpress-mysql
 - https://github.com/reportportal/reportportal/blob/master/docker-compose.yml
 
-# Known issues
+## Known issues
 - Attachments with messages are correct in Report Portal but not correct in HTML reports. That is the reason why the current setup does not use them.
 - Playwright config is processed in a different way than Playwright does it itself. Processing is done in `features/step_definitions/support/hooks_config.ts`.
   - Field `use.launchOptions` is used to start the browser.
@@ -184,7 +182,7 @@ If you prefer to run services separately:
 
 ---
 
-# Boring things at the end
+## Boring things at the end
 ### Verified on
 - Windows 10 Pro 22H2
 - NodeJs 22.17.1
@@ -198,7 +196,5 @@ If you prefer to run services separately:
     - Playwright Test for VSCode v1.1.17
 
 ---
-
-Keywords: Node.js, Playwright, Cucumber, Gherkin, BDD, Report Portal, JavaScript, TypeScript
 
 License: ISC
