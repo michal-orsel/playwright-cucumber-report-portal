@@ -32,11 +32,13 @@ Thanks to Koushik for making great [YouTube tutorials](https://www.youtube.com/w
 
 #### Prerequisites
 - Install [Node.js](https://nodejs.org/) 
+
+##### Node packages install
 - Install packages using the command: `npm ci`
 - Install Playwright: `npx playwright install`
 
 #### Configuration
-[Report Portal configuration](https://github.com/reportportal/agent-js-cucumber) needs to be set. At least the apiKey.
+[Report Portal configuration](https://github.com/reportportal/agent-js-cucumber) needs to be set. At least the apiKey must be configured.
 - Update `config/reportportal_config.json`
 
 There are more places that can be configured, but not all are needed for the first run:
@@ -61,7 +63,7 @@ Note: Keep in mind that each config sets up different technology. Let me explain
 
 #### To run:
 - To run all scenarios, use the command: `npm run test`
-- To rerun failed scenarios use command: `npm run test:rerun`
+- To rerun failed scenarios, use the command: `npm run test:rerun`
 - To run specific tests, use the command (example): `npm run tag-login:positive`
 - To run a different profile than the one specified in `config/config.json`, use the example script `npm run test-project-in-command-mobile-chrome`
 
@@ -138,11 +140,11 @@ If you see "NCU Real Time Weather is Running.", then run the following command a
 
 Docker images for Report Portal and WordPress are ready in the test-stack folder. The test stack uses a unified docker-compose.yml that includes both Report Portal and WordPress configurations.
 
-[Docker](https://www.docker.com/) needs to be installed to set up the testing environment.
+[Docker](https://www.docker.com/) needs to be installed to set up the testing environment. Also, [Prerequisites](#prerequisites) need to be completed beforehand.
 
 ### Setup steps
 
-For initial test stack setup, use the script `init_test_stack.sh` or `init_test_stack.bat`. Keep in mind that [Prerequisites](#prerequisites) need to be completed beforehand.
+For initial test stack setup, use the script `init_test_stack.sh` or `init_test_stack.bat`.
 
 The manual steps are as follows:
 
@@ -150,8 +152,10 @@ The manual steps are as follows:
 2. Start all services: `docker compose up -d`
 3. Wait for services to start (ReportPortal may take a few minutes)
 4. Navigate back to project root: `cd ..`
-5. Run automation to get Report Portal api key: `npm run report-portal:setup-api-key`
-6. Run automation to complete WordPress installation: `npm run tag-install` or install manually. WordPress should be set to English for user `test` with password `test` and email `test@example.com`
+5. Install packages using the command: `npm ci`
+6. Install Playwright: `npx playwright install`
+7. Run automation to get Report Portal api key: `npm run report-portal:setup-api-key`
+8. Run automation to complete WordPress installation: `npm run tag-install` or install manually. WordPress should be set to English for user `test` with password `test` and email `test@example.com`
 
 Access to:
 - Report Portal at http://localhost:8080

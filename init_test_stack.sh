@@ -12,10 +12,16 @@ docker compose up -d
 echo "Step 3: Navigating back to project root..."
 cd ..
 
-echo "Step 4: Running automation to get Report Portal API key..."
+echo "Step 4: Install node modules..."
+npm run npm ci
+
+echo "Step 5: Install Playwright browsers..."
+npm npx playwright install
+
+echo "Step 6: Running automation to get Report Portal API key..."
 npm run report-portal:setup-api-key
 
-echo "Step 5: Running automation to complete WordPress installation..."
+echo "Step 7: Running automation to complete WordPress installation..."
 npm run tag-install
 
 echo "Test Stack Initialization Complete!"
