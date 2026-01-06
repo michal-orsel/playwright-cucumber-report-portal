@@ -8,7 +8,7 @@
 ---
 
 ## Automation solution
-Basic automation solution for everyone who wants to use the modern testing framework [Playwright](https://playwright.dev/) and likes [Cucumber](https://cucumber.io/) tests. Results are continuously sent into [Report Portal](https://reportportal.io/). The Report Portal can be hosted locally. Thus the whole solution is free. Have fun. PS: Follow [best practice](https://playwright.dev/docs/best-practices).
+Basic automation solution for everyone who wants to use the modern testing framework [Playwright](https://playwright.dev/) and likes [Cucumber](https://cucumber.io/) tests. Results are continuously sent to [Report Portal](https://reportportal.io/). The Report Portal can be hosted locally. Thus the whole solution is free. Have fun. PS: Follow [best practice](https://playwright.dev/docs/best-practices).
 
 Thanks to Koushik for making great [YouTube tutorials](https://www.youtube.com/watch?v=bfWXNLqKlvA&list=PL699Xf-_ilW6KgK-S1l9ynOnBGiZl2Bsk&index=1). This solution is based on it.
 
@@ -32,11 +32,11 @@ Thanks to Koushik for making great [YouTube tutorials](https://www.youtube.com/w
 
 #### Prerequisites
 - Install [Node.js](https://nodejs.org/) 
-- Download packages by command: `npm ci`
+- Install packages using the command: `npm ci`
 - Install Playwright: `npx playwright install`
 
 #### Configuration
-[Report Portal configuration](https://github.com/reportportal/agent-js-cucumber) needs to be set. At least apiKey.
+[Report Portal configuration](https://github.com/reportportal/agent-js-cucumber) needs to be set. At least the apiKey.
 - Update `config/reportportal_config.json`
 
 There are more places that can be configured, but not all are needed for the first run:
@@ -60,12 +60,12 @@ Some handy configuration examples:
 Note: Keep in mind that each config sets up different technology. Let me explain with an example: Screenshots can be enabled in `config/reportportal_config.json`, but if they are not enabled in `config/playwright.config.ts`, then Playwright does not take any screenshots. Thus, the Report Portal client does not have any screenshots to upload.
 
 #### To run:
-- All scenarios use command: `npm run test`
+- To run all scenarios, use the command: `npm run test`
 - To rerun failed scenarios use command: `npm run test:rerun`
-- To run specific tests use command (just example): `npm run tag-login:positive`
+- To run specific tests, use the command (example): `npm run tag-login:positive`
 - To run a different profile than the one specified in `config/config.json`, use the example script `npm run test-project-in-command-mobile-chrome`
 
-Note: Keep in mind that there is a cleaner which drops results and reports before each `npm run test` command and other scripts that execute it.
+Note: Keep in mind that there is a cleaner that drops results and reports before each `npm run test` command and other scripts that execute it.
 
 ##### Run in debug Visual Studio Code
 
@@ -142,7 +142,7 @@ Docker images for Report Portal and WordPress are ready in the test-stack folder
 
 ### Setup steps
 
-For initial test stack setup, use the script `init_test_stack.sh` or `init_test_stack.bat`. Keep in mind that [Prerequisites](#Prerequisites) needs to be done before.
+For initial test stack setup, use the script `init_test_stack.sh` or `init_test_stack.bat`. Keep in mind that [Prerequisites](#prerequisites) need to be completed beforehand.
 
 The manual steps are as follows:
 
