@@ -1,5 +1,14 @@
 # Playwright Cucumber Report Portal
 
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE.txt)
+[![TypeScript](https://img.shields.io/badge/TypeScript-77.6%25-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ed?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Playwright](https://img.shields.io/badge/Playwright-Supported-45ba4b?logo=playwright&logoColor=white)](https://playwright.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.17.1-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Report Portal](https://img.shields.io/badge/Report_Portal-5.15.0-00c7d4)](https://reportportal.io/)
+
+---
+
 # Automation solution
 Basic automation solution for everyone who wants to use the modern testing framework [Playwright](https://playwright.dev/) and likes [Cucumber](https://cucumber.io/) tests. Results are continuously sent into [Report Portal](https://reportportal.io/). The Report Portal can be hosted locally. Thus the whole solution is free. Have fun. PS: Follow [best practice](https://playwright.dev/docs/best-practices).
 
@@ -118,14 +127,14 @@ Do you like this solution but Report Portal is not your cup of tea? Feel free to
 # Update packages
 The following commands upgrade packages:
 
-  npx npm-check-updates
-  npm outdated
-  npx ncu --upgrade
-  npm install
+    npx npm-check-updates
+    npm outdated
+    npx ncu --upgrade
+    npm install
 
 If you see "NCU Real Time Weather is Running.", then run the following command and try upgrading again:
 
-  npm install -g npm-check-updates
+    npm install -g npm-check-updates
 
 # Test stack
 
@@ -135,14 +144,20 @@ Docker images for Report Portal and WordPress are ready in the test-stack folder
 
 ## Setup steps
 
+For initial test stack setup, use the script `init_test_stack.sh` or `init_test_stack.bat`. Keep in mind that [Prerequisites](#Prerequisites) needs to be done before.
+
+The manual steps are as follows:
+
 1. Navigate to test-stack folder: `cd test-stack`
 2. Start all services: `docker compose up -d`
 3. Wait for services to start (ReportPortal may take a few minutes)
-4. Access ReportPortal at http://localhost:8080 (username: `superadmin`, password: `erebus`)
-5. Create an API key from Report Portal and configure it in `config/reportportal_config.json`
-6. Navigate back to project root: `cd ..`
-7. Run WordPress installation: `npm run tag-install-wordpress` or install manually. WordPress should be set to English for user `test` with password `test` and email `test@example.com`
-8. Access WordPress at http://localhost:8099
+4. Navigate back to project root: `cd ..`
+5. Run automation to get Report Portal api key: `npm run report-portal:setup-api-key`
+6. Run automation to complete WordPress installation: `npm run tag-install` or install manually. WordPress should be set to English for user `test` with password `test` and email `test@example.com`
+
+Access to:
+- Report Portal at http://localhost:8080
+- WordPress at http://localhost:8099
 
 If you prefer to run services separately:
 - Report Portal: `docker compose -f ./test-stack/report_portal/docker-compose.yaml up`

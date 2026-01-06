@@ -16,7 +16,7 @@
         "reportportal/mcp-server"
       ],
       "env": {
-        "RP_API_TOKEN": "test_THwj72wVQpeFmGFHYs3tSP6wL9UgliudD_oMj86TOFLWlNkOKu2ImvHXrQVEQVd4",
+        "RP_API_TOKEN": "auto7503c0b4-9adb-4af6-8f04-b8f50578d284_YGAGpAwsR9eV_0YMJgG3KcFzd1VKTc9Yl_cNpNxVdgoMQe6QVb0s_Dj_aDOmX_o7",
         "RP_HOST": "http://localhost:8080",
         "RP_PROJECT": "superadmin_personal"
       }

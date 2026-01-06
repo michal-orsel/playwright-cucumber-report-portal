@@ -1,10 +1,13 @@
 {
-  "apiKey": "test_THwj72wVQpeFmGFHYs3tSP6wL9UgliudD_oMj86TOFLWlNkOKu2ImvHXrQVEQVd4",
+  "apiKey": "auto7503c0b4-9adb-4af6-8f04-b8f50578d284_YGAGpAwsR9eV_0YMJgG3KcFzd1VKTc9Yl_cNpNxVdgoMQe6QVb0s_Dj_aDOmX_o7",
   "endpoint": "http://localhost:8080/api/v1",
   "launch": "launch_name",
   "project": "superadmin_personal",
   "description": "Launch description",
-  "attributes": ["attribute1", "attribute2"],
+  "attributes": [
+    "attribute1",
+    "attribute2"
+  ],
   "takeScreenshot": "onFailure",
   "launchUuidPrint": true,
   "uploadVideo": true,
